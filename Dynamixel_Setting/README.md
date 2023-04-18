@@ -1,5 +1,6 @@
 
 # 다이나믹셀 사전 설정
+https://github.com/KistCollabotProject/Dynamixel_Check
 
 ### 1. Motor_Scan.ino <br/>
 ##### 모터를 스캔하는 작업 -> Example 예제에도 있습니다. 해당 아두이노 코드에서는 BaudRate 56000으로 바꿔주었고, 모터 개수도 늘렸습니다. <br/><br/>
