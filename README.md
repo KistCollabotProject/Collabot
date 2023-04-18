@@ -16,86 +16,62 @@
 
 
 # Collabot project Guide <br/>
-## 1. Beginner branch
+## 1. Beginner repository
 
 #### If you attend this project at First, Please checkout the Beginner Branch <br/>
 
+https://github.com/KistCollabotProject/Beginner <br/>
 
-https://github.com/sjz1/Robotized_Objects/tree/beginner <br/>
 
-
-```bash
-git checkout beginner
-```
 
 <br/><br/>
 
 
-## 2. Dynamixel_Check branch
-This Branch target to test Dynamixel from local setting
+## 2. Dynamixel_Check repository
+This repository target to test Dynamixel from local setting
 
-https://github.com/sjz1/Robotized_Objects/tree/Dynamixel_Check <br/>
+https://github.com/KistCollabotProject/Dynamixel_Check <br/>
 
-
-```bash
-git checkout Dynamixel_Check
-```
 
 <br/><br/>
 
-## 3. RaspberryPi_Setting branch
-This Branch target to introduce "How to setting RasberryPI for our environment"
+## 3. RaspberryPi_Setting folder
+This folder target to introduce "How to setting RasberryPI for our environment"
 
-https://github.com/sjz1/Robotized_Objects/tree/RasberryPi_Setting <br/>
+https://github.com/KistCollabotProject/Collabot/tree/main/Rasberry_pi_Setting <br/>
 
 
-```bash
-git checkout RaspberryPi_Setting
-```
-
+=
 <br/><br/>
 
 
-## 4. Height_Measuring  branch
-This Branch target to introduce "How to measure Person's Height using Ultrasonic Sensor"
+## 4. Height_Measuring  repository
+This repository target to introduce "How to measure Person's Height using Ultrasonic Sensor"
 
-https://github.com/sjz1/Robotized_Objects/tree/Height_Measuring  <br/>
+hhttps://github.com/KistCollabotProject/Height_Measuring  <br/>
 
 
-```bash
-git checkout Height_Measuring 
-```
 
 <br/><br/>
 
-## 5. Frontend  branch
+## 5. Frontend repository
 Build App by using Appinventor
 
-https://github.com/sjz1/Robotized_Objects/tree/Frontend  <br/>
+https://github.com/KistCollabotProject/Frontend  <br/>
 
 
-```bash
-git checkout Frontend
-```
 
 
-## 6. Desk  branch
-This Branch for "Desk" part
+## 6. Desk  repository
+This repository for "Desk" part
 
-https://github.com/sjz1/Robotized_Objects/tree/Desk  <br/>
-
-
-```bash
-git checkout Desk
-```
+https://github.com/KistCollabotProject/Desk <br/>
 
 
-## 6. Bookcase  branch
-This Branch for "Bookcase" part
 
-https://github.com/sjz1/Robotized_Objects/tree/Bookcase  <br/>
+## 6. Bookcase  repository
+This repository for "Bookcase" part
+
+https://github.com/KistCollabotProject/Bookcase  <br/>
 
 
-```bash
-git checkout Bookcase
-```
