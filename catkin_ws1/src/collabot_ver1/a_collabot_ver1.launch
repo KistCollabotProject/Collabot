@@ -1,0 +1,14 @@
+
+<launch>
+  <node pkg= "collabot_ver1" type="ac_pub_az_sub.py" name="ac_converter">
+    <param name="height_threshold" type="int" value="300"/>
+  </node>
+  <node pkg="rosserial_python" type="serial_node.py" name="opencr">
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="57600"/>
+  </node>
+  <node pkg= "collabot_ver1" type="sceinaro_make.py" name="sceinaro"/>
+
+</launch>
+
+
