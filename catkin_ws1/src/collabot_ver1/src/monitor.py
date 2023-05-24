@@ -74,7 +74,7 @@ class monitor:
                 pass
 
             else: #다른게 들어왔을때
-                self.status[state_idx] = msg.data #갱신
+                self.status[state_idx] = msg.data 
                 self.flag = state_idx #플래그 올리고
 
         self.status[state_idx] = msg.data #update
@@ -90,7 +90,7 @@ class monitor:
                 pass
 
             else: #다른게 들어왔을때
-                self.status[state_idx] = msg.data #갱신
+                self.status[state_idx] = msg.data 
                 self.flag = state_idx #플래그 올리고
 
         self.status[state_idx] = msg.data #update
@@ -107,11 +107,13 @@ class monitor:
                 pass
 
             else: #다른게 들어왔을때
-                self.status[state_idx] = msg.data #갱신
+                self.status[state_idx] = msg.data 
                 #self.flag = state_idx #플래그 올리고
 
         self.status[state_idx] = msg.data #update
 
+        if self.status[state_idx] == None: 
+            pass
 
     def sceinaro_callback(self,msg):
         state_idx = 4
@@ -126,7 +128,7 @@ class monitor:
                 pass
 
             else: #다른게 들어왔을때
-                self.status[state_idx] = msg.data #갱신 (ex : 1 -> 2)
+                self.status[state_idx] = msg.data 
                 self.flag = state_idx #플래그 올리고
 
         self.status[state_idx] = msg.data #update
