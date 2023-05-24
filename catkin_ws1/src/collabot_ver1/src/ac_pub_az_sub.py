@@ -14,7 +14,7 @@ TrackerNode::TrackerNode(ros::NodeHandle& _nh)
 }
 
 
-OpenCR 에서 보내는 정보     
+OpenCR 에서 보내는 정보        
 
 ros::Publisher sceinaro_make("bookcase_num",  &moter_num)
 std_msgs::String moter_num //string type으로 bookcase_num topic날림

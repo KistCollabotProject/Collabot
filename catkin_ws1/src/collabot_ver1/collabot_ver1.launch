@@ -1,4 +1,5 @@
 <launch>
+  <node pkg= "az_body_tracker" type="az_body_tracker" name="az_cam"/>  
   <node pkg= "collabot_ver1" type="ac_pub_az_sub.py" name="ac_converter">
     <param name="height_threshold" type="int" value="2000"/>
   </node>

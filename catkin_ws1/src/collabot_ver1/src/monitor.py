@@ -31,8 +31,7 @@ class monitor:
     def __init__(self):
         rospy.init_node('monitoring_node', anonymous=True)
 
-
-        self.height_threshold = rospy.get_param('~height_threshold')
+        self.flag = -1
 
         ###############################
         ####### Make Subscriber #######
@@ -66,43 +65,57 @@ class monitor:
 
     def ac_callback(self,msg): #ac를 인식하는 부분
         state_idx = 1
-        self.status[state_idx] = msg.data
-        self.callback_print(msg,state_idx)
 
+        if self.status[state_idx] == None: 
+            pass
+
+        else: #무언가가 있을때
+            if self.status[state_idx] == msg.data: #같은게 들어왔을 때
+                pass
+
+            else: #다른게 들어왔을때
+                self.status[state_idx] = msg.data #갱신
+                self.flag = state_idx #플래그 올리고
+
+        self.status[state_idx] = msg.data #update
 
     def bookcase_callback(self,msg):
         state_idx = 2
-        self.status[state_idx] = msg.data
-        self.callback_print(msg,state_idx)
+
+        if self.status[state_idx] == None: 
+            pass
+
+        else: #무언가가 있을때
+            if self.status[state_idx] == msg.data: #같은게 들어왔을 때
+                pass
+
+            else: #다른게 들어왔을때
+                self.status[state_idx] = msg.data #갱신
+                self.flag = state_idx #플래그 올리고
+
+        self.status[state_idx] = msg.data #update
 
 
     def count_callback(self,msg):
         state_idx = 3
-        self.status[state_idx] = msg.data
-        self.callback_print(msg,state_idx)
+
+        if self.status[state_idx] == None: 
+            pass
+
+        else: #무언가가 있을때
+            if self.status[state_idx] == msg.data: #같은게 들어왔을 때
+                pass
+
+            else: #다른게 들어왔을때
+                self.status[state_idx] = msg.data #갱신
+                #self.flag = state_idx #플래그 올리고
+
+        self.status[state_idx] = msg.data #update
 
 
     def sceinaro_callback(self,msg):
         state_idx = 4
-        self.status[state_idx] = msg.data
-        self.callback_print(msg,state_idx)
 
-
-    def print_info(self,idx):
-        state_name =   ["length" , "adult/child" , "bookcase_num" , "count" , "sceinaro"]
-        print("######################## [Info] #############################")
-        print("## The %s is currently change !" %state_name[idx])
-        print("## State Change occur in %d /n" % now.time())    
-        print("## height_threshold  : %d " %self.height_threshold)   
-        print("## length : %d " %self.status[0])
-        print("## ac_info : %d " %self.status[1])
-        print("## Book : %d " %self.status[2])
-        print("## count : %d " %self.status[3])
-        print("## sceinaro : %s " %self.status[4])
-        print("#################################################### /n")
-
-
-    def callback_print(self,msg,state_idx):
         #              [length , adult/child , bookcase_num , count , sceinaro]
         #self.status = [None ,  None ,         None ,          None ,     None]
         if self.status[state_idx] == None: # ac_information = None (초기상태)
@@ -113,13 +126,39 @@ class monitor:
                 pass
 
             else: #다른게 들어왔을때
-                self.status = msg.data #갱신 (ex : 1 -> 2)
-                self.print_info(state_idx)
+                self.status[state_idx] = msg.data #갱신 (ex : 1 -> 2)
+                self.flag = state_idx #플래그 올리고
+
+        self.status[state_idx] = msg.data #update
+
+
+    def print_info(self,idx):
+        state_name =   ["length" , "adult/child" , "bookcase_num" , "count" , "sceinaro"]
+        rospy.loginfo("############### [Info] ####################")
+        rospy.loginfo("## The %s is currently change ! ##" %state_name[idx])
+        rospy.loginfo("## State Change occur in %s ##" %str(now.time()))
+        rospy.loginfo("########################################### \n") 
+
+        rospy.loginfo("########################")
+        rospy.loginfo("## length : %s " %str(int(self.status[0])))
+        rospy.loginfo("## ac_info : %s " %self.status[1])
+        rospy.loginfo("## Book : %s " %self.status[2])
+        rospy.loginfo("## count : %s " %str(self.status[3]))
+        rospy.loginfo("## sceinaro : %s " %str(self.status[4]))
+        rospy.loginfo("######################## \n")
+        
 
 
     def Monitoring(self):
         while not rospy.is_shutdown(): #-> c++에서 ros.ok() 느낌
-            rospy.loginfo("Monitoring")
+            
+            #추후 이용하면 좋을 듯
+            #rospy.loginfo(self.status)
+            if self.flag == -1:
+                pass
+            else:
+                self.print_info(self.flag)
+                self.flag = -1
             self.rate.sleep() #100hz가 될때 까지 쉬기
             
 

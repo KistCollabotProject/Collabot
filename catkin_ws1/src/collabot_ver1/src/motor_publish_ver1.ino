@@ -162,17 +162,26 @@ void loop() {
   
   while (Serial2.available()) {
 
-//    std::string data = cppString(Serial2.readStringUntil(' '));
+//  std::string data = cppString(Serial2.readStringUntil(' '));
     String data = Serial2.readStringUntil(' ');
-    if(data == "book1" || data == "book2"|| data == "book3"|| data == "book4"|| data == "book5"|| data == "book6"|| data == "book7"|| data == "book8"|| data == "book9"|| data == "reset"){
+    if(data == "book1" || data == "book2"|| data == "book3"|| data == "book4"|| data == "book5"|| data == "book6"|| data == "book7"|| data == "book8"|| data == "book9"){
         moter_num.data = data.c_str();
         
         count++;
         total_count.data = count;
-        
         sceinaro_make.publish(&moter_num);
         pub_count.publish(&total_count);
     }
+
+
+    if(data == "reset"){
+        moter_num.data = data.c_str();
+        count = 0;
+        total_count.data = count; 
+        sceinaro_make.publish(&moter_num);
+        pub_count.publish(&total_count);
+    }
+    
     
     if (data == "book1") {
       dxl_wb.goalPosition(motor[1], (int32_t)(initial_pos[1] + 7900));
