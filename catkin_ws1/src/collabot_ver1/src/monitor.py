@@ -145,7 +145,7 @@ class monitor:
         rospy.loginfo("## Book : %s " %self.status[2])
         rospy.loginfo("## count : %s " %str(self.status[3]))
         rospy.loginfo("## sceinaro : %s " %str(self.status[4]))
-        rospy.loginfo("######################## \n")
+        rospy.loginfo("######################## \n\n\n")
         
 
 
@@ -166,6 +166,15 @@ class monitor:
 if __name__ == '__main__':
     try:
         info = monitor()
+        rospy.loginfo("#############################################################################")
+        rospy.loginfo("##                                                                         ##")
+        rospy.loginfo("##       ####    ####     ##  ##     ##     #####     ####    ########     ##")
+        rospy.loginfo("##     ##      ##    ##   ##  ##   ##  ##   ##  ##  ##    ##     ##        ##")
+        rospy.loginfo("##    ##      ##      ##  ##  ##  ########  #####  ##      ##    ##        ##")
+        rospy.loginfo("##     ##      ##    ##   ##  ##  ##    ##  ##  ##  ##    ##     ##        ##")
+        rospy.loginfo("##       ####    ####     ##  ##  ##    ##  #####     ####       ##        ##")
+        rospy.loginfo("##                                                                         ##")
+        rospy.loginfo("############################################################################# \n\n") 
         info.Monitoring()
     except rospy.ROSInterruptException:
         pass
